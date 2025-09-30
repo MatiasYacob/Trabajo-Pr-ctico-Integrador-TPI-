@@ -112,7 +112,7 @@ def mostrar_registro(r: Registro) -> None:
     )
 #==========================================================#
 
-#===============MENU================#
+#======================MENU================================#
 
 
 #================# Función menú principal =================#
@@ -439,7 +439,7 @@ def clave_orden(reg: Registro, campo: str):
     raise ValueError("Campo de orden no válido (use: nombre, poblacion o superficie)") # Si el campo no es válido, lanza un error
 #=======================================================#
 
-#================# Función pais_mayor_menor_poblacion =================#
+#================# Función pais_mayor_menor_poblacion =======================#
 #==Devuelve el país con mayor y menor población en una tupla (mayor, menor)==#
 def pais_mayor_menor_poblacion(datos: List[Registro]) -> tuple[Registro | None, Registro | None]:
     if not datos: # Si no hay datos,
@@ -447,17 +447,17 @@ def pais_mayor_menor_poblacion(datos: List[Registro]) -> tuple[Registro | None, 
     mayor = max(datos, key=lambda r: int(r["poblacion"])) # Encuentra el país con mayor población
     menor = min(datos, key=lambda r: int(r["poblacion"])) # Encuentra el país con menor población
     return mayor, menor  # Devuelve una tupla con el país de mayor y menor población
-#=================================================================#
+#============================================================================#
 
-#================# Función promedio_poblacion =================#
+#================# Función promedio_poblacion ======================#
 #==Devuelve el promedio simple de población. None si no hay datos.==#
 def promedio_poblacion(datos: List[Registro]) -> float | None:
     if not datos: # Si no hay datos,
         return None # devuelve None
     return sum(int(r["poblacion"]) for r in datos) / len(datos) # Calcula y devuelve el promedio de población
-#=================================================================#
+#===================================================================#
 
-#================# Función promedio_superficie =================#
+#================# Función promedio_superficie ===================#
 #==Promedio simple de superficie (km²). None si no hay datos.==#
 def promedio_superficie(datos: List[Registro]) -> float | None:
     if not datos: # Si no hay datos, devuelve None
@@ -498,7 +498,7 @@ def mostrar_estadisticas_resumen(datos: List[Registro]) -> None:
     print("• Cantidad de países por continente:") # Mostrar cantidad de países por continente
     for cont, cant in conteo.items(): # Itera sobre cada continente y su cantidad
         print(f"  - {cont}: {cant}") # Muestra el continente y la cantidad de países
-#=================================================================#
+#========================================================================#
 
 
 
