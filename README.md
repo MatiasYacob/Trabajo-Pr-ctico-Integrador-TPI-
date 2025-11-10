@@ -46,12 +46,7 @@ source .venv/bin/activate
 
 Instalación
 
-Cloná este repositorio y, si querés, activá tu entorno virtual:
-
-git clone <TU_REPO_URL>
-cd <TU_REPO>
-# (opcional) activar venv
-
+Descarga la carpeta con los archivos.
 
 No hay paquetes extra que instalar.
 
