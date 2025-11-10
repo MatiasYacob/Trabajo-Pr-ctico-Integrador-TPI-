@@ -14,8 +14,6 @@ Estructura del CSV
 
 Menú y funcionalidades
 
-Validaciones y mensajes
-
 Diagrama general (Mermaid)
 
 Casos de uso rápidos
@@ -24,17 +22,13 @@ Solución de problemas
 
 Estructura del proyecto
 
-Roadmap
-
-Licencia
-
 Requisitos
 
 Python 3.10+ (recomendado 3.12)
 
 No requiere dependencias externas (usa librerías estándar).
 
-Opcional: usar un entorno virtual para aislar dependencias.
+
 
 python -V
 python -m venv .venv
@@ -177,12 +171,12 @@ Guardar con datos inválidos: cancela el guardado y avisa.
 
 Actualizar país: selección de índice inválida o valores no válidos → error y volver al menú (no reintenta).
 
-El programa usa mensajes tipo [OK], [INFO], [AVISO], [ERROR] para comunicar estados.
+
 
 Diagrama general (Mermaid)
 
 Podés visualizarlo en https://mermaid.live
- o integrarlo en tu documentación.
+ 
 
 Menú principal
 flowchart TD
@@ -205,7 +199,6 @@ flowchart TD
     A4 -->|Otro| ERR[[Opcion invalida]] --> A2
 
 
-En la carpeta docs/ podés incluir diagramas adicionales por función (cargar_csv, filtros, etc.).
 
 Casos de uso rápidos
 
@@ -250,30 +243,17 @@ No se guarda el CSV
 
 Asegurate de haber cargado primero un archivo (para tener ruta_actual).
 
-Si detecta registros inválidos, cancela el guardado: corregí los datos.
+
 
 Estructura del proyecto
 .
 ├─ main.py                # Programa principal (menu y logica)
 ├─ data/
 │  └─ paises.csv          # CSV de ejemplo (opcional)
-├─ docs/
-│  ├─ diagramas.md        # Mermaid de los flujos (opcional)
-│  └─ diagramas/*.png     # Exportaciones (opcional)
 └─ README.md
 
-Roadmap
 
-Exportar a JSON además de CSV.
 
-Soporte de idioma configurable.
 
-Pruebas unitarias de helpers (parseo de rango, filtros, ordenamiento).
-
-Métricas adicionales (p. ej., top-N por densidad).
-
-Licencia
-
-Este proyecto se distribuye bajo la licencia MIT (o la que prefieras). Agregá el archivo LICENSE si corresponde.
 
 Autor: Matías Luis Yacob
