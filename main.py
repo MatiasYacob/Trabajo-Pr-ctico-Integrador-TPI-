@@ -16,10 +16,8 @@
 
 
 #========# Importaciones ========#
-
 import csv # Módulo para manejar archivos CSV
 import os # Módulo para operaciones del sistema operativo
-
 #================================#
 
 
@@ -60,7 +58,7 @@ def _entero_sin_sep(s: str) -> tuple[bool, int]:
 
 
 #================# Función clave_orden =================#
-
+#==Devuelve clave de ordenamiento según campo especificado==#
 def clave_orden(reg: dict[str, object], campo: str):
     if campo not in campos_orden_validos():
         # Si se llama directo sin validar
@@ -70,30 +68,22 @@ def clave_orden(reg: dict[str, object], campo: str):
     if campo == "poblacion":
         return int(str(reg.get("poblacion", "0")).replace("_","").replace(" ","") or "0")
     return int(str(reg.get("superficie", "0")).replace("_","").replace(" ","") or "0")
-
+#================# Función campos_csv =================#
+#==Devuelve lista de campos válidos del CSV==#
 def campos_csv() -> list[str]:
     # Encabezados válidos del archivo CSV
     return ["nombre", "poblacion", "superficie", "continente"]
-
+#================# Función campos_orden_validos =================#
+#==Devuelve tupla de campos válidos para ordenamiento==#
 def campos_orden_validos() -> tuple[str, ...]:
     # Campos permitidos para ordenar (sin usar globals)
     return ("nombre", "poblacion", "superficie")
 
 
 
-
-
-
-
-
-
-
-
-
-
 #=========================================================================#
 #=========Funcion cargar_csv (con validaciones)===========================#
-#==Recibe la ruta al archivo y devuelve una lista de diccionarios (dict[str, object])==#
+#==Recibe la ruta al archivo y devuelve una lista de diccionarios ==#
 #==============================================#
 # Cargar CSV 
 #==============================================#
@@ -239,13 +229,10 @@ def guardar_csv(ruta: str, datos: list[dict[str, object]]) -> None:
 
 
 
-
-
-
-
 #=========================#
 # Continentes (opciones)
 #=========================#
+#==Función auxiliar para canonizar continentes==#
 def _canon_continentes(datos: list[dict[str, object]]) -> list[str]:
     """
     Devuelve una lista de continentes 'canonizados' a partir de los datos ya cargados,
@@ -262,7 +249,7 @@ def _canon_continentes(datos: list[dict[str, object]]) -> list[str]:
             vistos[key] = raw
     # ordenar por forma mostrada (estética; no afecta la “canonicidad”)
     return sorted(vistos.values(), key=lambda s: s.casefold())
-
+#==Función para elegir continente==#
 def elegir_continente(datos: list[dict[str, object]]) -> str:
     """
     Muestra un menú con continentes existentes y permite elegir uno.
@@ -302,7 +289,6 @@ def mostrar_registro(r: dict[str, object]) -> None:
         f"Superficie: {r['superficie']:,} km² | Continente: {r['continente']}"
         .replace(",", ".")
     )
-
 #==========================================================#
 
 
